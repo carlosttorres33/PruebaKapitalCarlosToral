@@ -11,4 +11,5 @@ data class CardEntity(
     val humanReadableCardType: String,
     val archetype: String,
     val race: String,
+    val name: String
 )
