@@ -6,13 +6,35 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".ui.main.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/fl_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_backgroud"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/background"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient" />
+
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/llAllCards"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="16dp"
         android:orientation="vertical"
         android:visibility="visible">
 
@@ -21,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Todas las Cartas"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
@@ -38,6 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Cartas Favoritas"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
@@ -51,7 +75,7 @@
             android:textColor="@color/gray"
             android:textSize="16sp"
             android:text="No hay cartas favoritas"
-            android:visibility="visible"/>
+            android:visibility="gone"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvFavoriteCards"
@@ -63,6 +87,19 @@
             tools:listitem="@layout/card_item"/>
 
     </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRetry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reintentar"
+        android:elevation="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:background="@color/purple_500"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
 
     <ProgressBar
         android:id="@+id/pb"

@@ -1,16 +1,13 @@
 package com.carlostorres.pruebakapitalcarlostoral.domain.usecases
 
 import com.carlostorres.pruebakapitalcarlostoral.data.local.model.CardEntity
-import com.carlostorres.pruebakapitalcarlostoral.data.remote.model.CardInfo
 import com.carlostorres.pruebakapitalcarlostoral.domain.repository.CardRepository
-import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class GetAllCardsUseCase (
+class UpdateCardUseCase @Inject constructor(
     private val cardRepository: CardRepository
 ) {
 
-    suspend operator fun invoke(): List<CardEntity> {
-        return cardRepository.getCards()
-    }
+    suspend operator fun invoke(cardEntity: CardEntity) = cardRepository.updateCard(cardEntity)
 
 }

@@ -6,17 +6,18 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.carlostorres.pruebakapitalcarlostoral.data.remote.model.CardInfo
+import com.carlostorres.pruebakapitalcarlostoral.R
+import com.carlostorres.pruebakapitalcarlostoral.data.local.model.CardEntity
 import com.carlostorres.pruebakapitalcarlostoral.databinding.CardItemBinding
 
-class CardListAdapter : ListAdapter<CardInfo, CardListAdapter.CardListViewHolder>(DiffCallback) {
+class CardListAdapter : ListAdapter<CardEntity, CardListAdapter.CardListViewHolder>(DiffCallback) {
 
-    companion object DiffCallback : DiffUtil.ItemCallback<CardInfo>() {
-        override fun areItemsTheSame(oldItem: CardInfo, newItem: CardInfo): Boolean {
+    companion object DiffCallback : DiffUtil.ItemCallback<CardEntity>() {
+        override fun areItemsTheSame(oldItem: CardEntity, newItem: CardEntity): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: CardInfo, newItem: CardInfo): Boolean {
+        override fun areContentsTheSame(oldItem: CardEntity, newItem: CardEntity): Boolean {
             return oldItem == newItem
         }
 
@@ -42,8 +43,11 @@ class CardListAdapter : ListAdapter<CardInfo, CardListAdapter.CardListViewHolder
     inner class CardListViewHolder(private val binding: CardItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(characterItem: CardInfo) {
-            Glide.with(binding.ivCardImage.context).load(characterItem.card_images.first().image_url).into(binding.ivCardImage)
+        fun bind(characterItem: CardEntity) {
+            Glide.with(binding.ivCardImage.context)
+                .load(characterItem.cardUrl)
+                .placeholder(R.drawable.background)
+                .into(binding.ivCardImage)
             binding.tvCardName.text = characterItem.name
             binding.ivCardImage.setOnClickListener {
                 onItemClickListener?.invoke(characterItem.id)
