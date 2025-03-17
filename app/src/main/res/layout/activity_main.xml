@@ -20,6 +20,7 @@
             android:id="@+id/iv_backgroud"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:contentDescription="@string/cardbg"
             android:scaleType="centerCrop"
             android:src="@drawable/background"/>
 
@@ -42,7 +43,7 @@
             android:id="@+id/tvAllCards"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Todas las Cartas"
+            android:text="@string/todas_las_cartas"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"/>
@@ -60,7 +61,7 @@
             android:id="@+id/tvFavoriteCards"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cartas Favoritas"
+            android:text="@string/cartas_favoritas"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"/>
@@ -74,7 +75,7 @@
             android:textStyle="italic"
             android:textColor="@color/gray"
             android:textSize="16sp"
-            android:text="No hay cartas favoritas"
+            android:text="@string/no_hay_cartas_favoritas"
             android:visibility="gone"/>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -92,7 +93,7 @@
         android:id="@+id/btnRetry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reintentar"
+        android:text="@string/reintentar"
         android:elevation="12dp"
         android:textColor="@color/white"
         android:textStyle="bold"
