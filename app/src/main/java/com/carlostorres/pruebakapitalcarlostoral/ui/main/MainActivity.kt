@@ -1,6 +1,7 @@
 package com.carlostorres.pruebakapitalcarlostoral.ui.main
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -36,12 +37,18 @@ class MainActivity : AppCompatActivity() {
     private fun initRecyclerView() {
         allCardListAdapter = CardListAdapter()
         binding.rvAllCards.adapter = allCardListAdapter
+        allCardListAdapter.setOnItemClickListener {
+            // Handle item click
+            Toast.makeText(this, "Item $it clicked", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun initUIState() {
         lifecycleScope.launch {
             viewModel.state.collect { state ->
                 binding.pb.isVisible = state.isLoading
+                binding.tvAllCards.isVisible = !state.isLoading
+                binding.rvAllCards.isVisible = !state.isLoading
                 if (state.cards.isNotEmpty()) {
                     allCardListAdapter.submitList(state.cards)
                 }

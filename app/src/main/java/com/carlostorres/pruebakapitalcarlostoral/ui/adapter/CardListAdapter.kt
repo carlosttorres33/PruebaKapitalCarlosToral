@@ -22,8 +22,15 @@ class CardListAdapter : ListAdapter<CardInfo, CardListAdapter.CardListViewHolder
 
     }
 
+    private var onItemClickListener: ((Int) -> Unit)? = null
+    fun setOnItemClickListener(listener: (Int) -> Unit) {
+        this.onItemClickListener = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardListViewHolder {
         val binding = CardItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
+
         return CardListViewHolder(binding)
     }
 
@@ -38,6 +45,9 @@ class CardListAdapter : ListAdapter<CardInfo, CardListAdapter.CardListViewHolder
         fun bind(characterItem: CardInfo) {
             Glide.with(binding.ivCardImage.context).load(characterItem.card_images.first().image_url).into(binding.ivCardImage)
             binding.tvCardName.text = characterItem.name
+            binding.ivCardImage.setOnClickListener {
+                onItemClickListener?.invoke(characterItem.id)
+            }
         }
 
     }
