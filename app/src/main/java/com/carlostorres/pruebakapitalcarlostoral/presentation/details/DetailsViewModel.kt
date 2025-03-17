@@ -4,7 +4,6 @@ import android.content.Context
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.carlostorres.pruebakapitalcarlostoral.data.local.model.CardEntity
 import com.carlostorres.pruebakapitalcarlostoral.domain.usecases.GetCardByIdUseCase
 import com.carlostorres.pruebakapitalcarlostoral.domain.usecases.UpdateCardUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -28,13 +27,8 @@ class DetailsViewModel @Inject constructor(
     fun getCardById(cardId: Int) = viewModelScope.launch(Dispatchers.IO) {
         _state.value = _state.value.copy(isLoading = true)
         try {
-
             val card = getCardByIdUseCase(cardId)
-            if (card != null) {
-                _state.value = _state.value.copy(card = card)
-            }else{
-                _state.value = _state.value.copy(error = "Card not found")
-            }
+            _state.value = _state.value.copy(card = card)
 
         } catch (e: Exception) {
             _state.value = _state.value.copy(error = e.message)

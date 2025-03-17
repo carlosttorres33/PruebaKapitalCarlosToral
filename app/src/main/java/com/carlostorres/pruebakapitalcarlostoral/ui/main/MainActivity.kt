@@ -67,47 +67,6 @@ class MainActivity : AppCompatActivity() {
                 handleErrorState(state.error)
                 handleAllCardsState(state.cards)
                 handleFavoriteCardsState(state.favoriteCards)
-
-//                if (state.isLoading){
-//                    binding.pb.visibility = View.VISIBLE
-//                    binding.tvNoFavoriteCards.visibility = View.GONE
-//                    binding.tvNoFavoriteCards.text = getString(R.string.cargando_text)
-//                    binding.tvAllCards.visibility = View.GONE
-//                    binding.tvFavoriteCards.visibility = View.GONE
-//                    binding.rvAllCards.visibility = View.GONE
-//                    binding.rvFavoriteCards.visibility = View.GONE
-//                    binding.btnRetry.visibility = View.GONE
-//                }else{
-//                    binding.pb.visibility = View.GONE
-//                    binding.btnRetry.visibility = View.GONE
-//                    binding.tvAllCards.visibility = View.VISIBLE
-//                    binding.tvFavoriteCards.visibility = View.VISIBLE
-//                    binding.rvAllCards.visibility = View.VISIBLE
-//                    binding.tvNoFavoriteCards.visibility = View.VISIBLE
-//                    binding.tvNoFavoriteCards.text = getString(R.string.no_hay_cartas_favoritas)
-//                    binding.rvFavoriteCards.visibility = View.VISIBLE
-//                }
-//                if (state.cards.isNotEmpty()) {
-//                    allCardListAdapter.submitList(state.cards)
-//                }
-//                if (state.favoriteCards.isNotEmpty()) {
-//                    favoriteCardListAdapter.submitList(state.favoriteCards)
-//                    binding.tvNoFavoriteCards.visibility = View.GONE
-//                }else{
-//                    binding.tvNoFavoriteCards.visibility = View.VISIBLE
-//                    binding.rvFavoriteCards.visibility = View.GONE
-//                }
-//                if (state.error.isNotEmpty()) {
-//                    Toast.makeText(this@MainActivity, state.error, Toast.LENGTH_SHORT).show()
-//                    binding.pb.visibility = View.GONE
-//                    binding.btnRetry.visibility = View.VISIBLE
-//                    binding.tvNoFavoriteCards.visibility = View.VISIBLE
-//                    binding.tvNoFavoriteCards.text = state.error
-//                    binding.tvAllCards.visibility = View.GONE
-//                    binding.tvFavoriteCards.visibility = View.GONE
-//                    binding.rvAllCards.visibility = View.GONE
-//                    binding.rvFavoriteCards.visibility = View.GONE
-//                }
             }
         }
     }
