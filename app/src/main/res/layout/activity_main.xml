@@ -6,13 +6,35 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".ui.main.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/fl_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_backgroud"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/background"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient" />
+
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/llAllCards"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="16dp"
         android:orientation="vertical"
         android:visibility="visible">
 
@@ -21,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Todas las Cartas"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
@@ -38,6 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Cartas Favoritas"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
