@@ -6,7 +6,7 @@ data class CardInfo(
     val desc: String,
     val type: String,
     val humanReadableCardType: String,
-    val archetype: String,
+    val archetype: String?,
     val race: String,
     val name: String,
 )
