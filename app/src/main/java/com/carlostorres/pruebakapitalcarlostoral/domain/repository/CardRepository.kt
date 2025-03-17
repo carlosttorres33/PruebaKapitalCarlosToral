@@ -11,4 +11,6 @@ interface CardRepository {
 
     fun getAllFavoriteCards(): Flow<List<CardEntity>>
 
+    suspend fun getCardById(cardId: Int): CardEntity
+
 }

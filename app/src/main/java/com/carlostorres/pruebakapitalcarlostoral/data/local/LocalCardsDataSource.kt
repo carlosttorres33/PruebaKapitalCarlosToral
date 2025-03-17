@@ -28,4 +28,8 @@ class LocalCardsDataSource @Inject constructor(
         return cardsDao.getActualCards()
     }
 
+    fun getCardById(cardId: Int): CardEntity {
+        return cardsDao.getCardById(cardId)
+    }
+
 }

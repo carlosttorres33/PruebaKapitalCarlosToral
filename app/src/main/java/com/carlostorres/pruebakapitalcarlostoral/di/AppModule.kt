@@ -10,6 +10,9 @@ import com.carlostorres.pruebakapitalcarlostoral.data.remote.RemoteCardsDataSour
 import com.carlostorres.pruebakapitalcarlostoral.data.repository.CardRepositoryImplementation
 import com.carlostorres.pruebakapitalcarlostoral.domain.repository.CardRepository
 import com.carlostorres.pruebakapitalcarlostoral.domain.usecases.GetAllCardsUseCase
+import com.carlostorres.pruebakapitalcarlostoral.domain.usecases.GetCardByIdUseCase
+import com.carlostorres.pruebakapitalcarlostoral.domain.usecases.GetFavoriteCardsUseCase
+import com.carlostorres.pruebakapitalcarlostoral.domain.usecases.UpdateCardUseCase
 import com.carlostorres.pruebakapitalcarlostoral.utils.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -58,6 +61,24 @@ object AppModule {
     fun provideGetAllCardsUseCase(
         cardRepository: CardRepository
     ) : GetAllCardsUseCase = GetAllCardsUseCase(cardRepository)
+
+    @Singleton
+    @Provides
+    fun provideGetFavoriteCardsUseCase(
+        cardRepository: CardRepository
+    ) : GetFavoriteCardsUseCase = GetFavoriteCardsUseCase(cardRepository)
+
+    @Singleton
+    @Provides
+    fun provideGetCardByIdUseCase(
+        cardRepository: CardRepository
+    ) : GetCardByIdUseCase = GetCardByIdUseCase(cardRepository)
+
+    @Singleton
+    @Provides
+    fun provideUpdateCardUseCase(
+        cardRepository: CardRepository
+    ) : UpdateCardUseCase = UpdateCardUseCase(cardRepository)
 
     //region ROOM
 

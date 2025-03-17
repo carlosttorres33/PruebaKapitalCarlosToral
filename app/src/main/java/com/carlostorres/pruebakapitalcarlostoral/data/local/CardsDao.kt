@@ -20,6 +20,9 @@ interface CardsDao {
     @Query("SELECT * FROM cards")
     fun getAllCards(): List<CardEntity>
 
+    @Query("SELECT * FROM cards WHERE id = :cardId")
+    fun getCardById(cardId: Int): CardEntity
+
     @Query("SELECT * FROM cards WHERE isFavorite = 1")
     fun getAllFavoriteCards(): Flow<List<CardEntity>>
 

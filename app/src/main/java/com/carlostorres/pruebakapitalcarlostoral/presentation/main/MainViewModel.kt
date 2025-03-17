@@ -26,25 +26,12 @@ class MainViewModel @Inject constructor(
     val state: StateFlow<MainState> = _state.asStateFlow()
 
     init {
-        //loadCards()
-        getAllCards()
-        //getFavoriteCards()
+        setUpCards()
     }
 
-    private fun loadCards() = viewModelScope.launch(Dispatchers.IO) {
-        _state.value = _state.value.copy(isLoading = true)
-//        try {
-//            combine(getAllCardsUseCase(), getFavoriteCardsUseCase()) { cards, favoriteCards ->
-//                Log.d("MainViewModel", "Cards: $cards")
-//                Log.d("MainViewModel", "Favorite Cards: $favoriteCards")
-//                MainState(cards = cards, favoriteCards = favoriteCards, isLoading = false, error = "")
-//            }.collectLatest {
-//                _state.value = it
-//            }
-//        }catch (e: Exception){
-//            Log.e("MainViewModel", "Error al cargar las cards", e)
-//            _state.value = _state.value.copy(error = e.message ?: "Error desconocido", isLoading = false)
-//        }
+    fun setUpCards(){
+        getAllCards()
+        getFavoriteCards()
     }
 
     private fun getFavoriteCards() = viewModelScope.launch(Dispatchers.IO) {
@@ -55,7 +42,7 @@ class MainViewModel @Inject constructor(
     }
 
     private fun getAllCards() = viewModelScope.launch(Dispatchers.IO) {
-        _state.value = _state.value.copy(isLoading = true)
+        _state.value = _state.value.copy(isLoading = true, error = "")
 
         try {
             val cards = getAllCardsUseCase()

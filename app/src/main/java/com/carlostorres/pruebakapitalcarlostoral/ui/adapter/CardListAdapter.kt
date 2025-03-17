@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.carlostorres.pruebakapitalcarlostoral.R
 import com.carlostorres.pruebakapitalcarlostoral.data.local.model.CardEntity
 import com.carlostorres.pruebakapitalcarlostoral.databinding.CardItemBinding
 
@@ -43,7 +44,10 @@ class CardListAdapter : ListAdapter<CardEntity, CardListAdapter.CardListViewHold
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(characterItem: CardEntity) {
-            Glide.with(binding.ivCardImage.context).load(characterItem.cardUrl).into(binding.ivCardImage)
+            Glide.with(binding.ivCardImage.context)
+                .load(characterItem.cardUrl)
+                .placeholder(R.drawable.background)
+                .into(binding.ivCardImage)
             binding.tvCardName.text = characterItem.name
             binding.ivCardImage.setOnClickListener {
                 onItemClickListener?.invoke(characterItem.id)

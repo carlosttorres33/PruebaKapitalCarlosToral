@@ -75,7 +75,7 @@
             android:textColor="@color/gray"
             android:textSize="16sp"
             android:text="No hay cartas favoritas"
-            android:visibility="visible"/>
+            android:visibility="gone"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvFavoriteCards"
@@ -87,6 +87,19 @@
             tools:listitem="@layout/card_item"/>
 
     </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRetry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reintentar"
+        android:elevation="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:background="@color/purple_500"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
 
     <ProgressBar
         android:id="@+id/pb"

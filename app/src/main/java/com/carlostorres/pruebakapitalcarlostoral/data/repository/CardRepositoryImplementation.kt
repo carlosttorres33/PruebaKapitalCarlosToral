@@ -30,7 +30,7 @@ class CardRepositoryImplementation @Inject constructor(
         val actualCards = localCardsDataSource.getActualCards()
 
         if (cardsListResponse.isSuccessful){
-            cardsListResponse.body()?.data?.forEach { card ->
+            cardsListResponse.body()?.data?.take(50)?.forEach { card ->
 
                 Log.d("CardRepository", "Card: $card")
 
@@ -61,6 +61,10 @@ class CardRepositoryImplementation @Inject constructor(
 
     override fun getAllFavoriteCards(): Flow<List<CardEntity>> {
         return localCardsDataSource.getAllFavoriteCards()
+    }
+
+    override suspend fun getCardById(cardId: Int): CardEntity {
+        return localCardsDataSource.getCardById(cardId)
     }
 
 }
